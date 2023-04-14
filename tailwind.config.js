@@ -1,12 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
-// const { Font } = require("expo");
-// const loadFont = async () => {
-//   await Font.loadAsync({
-//     Montserrat: require("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Work+Sans:ital,wght@0,400;1,600&display=swap"),
-//   });
-// };
-// loadFont();
 module.exports = {
   content: ["./App.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -19,10 +11,6 @@ module.exports = {
         placeholder: "#8F9BB3",
         muted: "#F3F3F3",
         bright: "#FFFFFF",
-      },
-      fontFamily: {
-        montserrat: "'Montserrat', sans-serif",
-        worksans: "'Work Sans', sans-serif",
       },
     },
   },

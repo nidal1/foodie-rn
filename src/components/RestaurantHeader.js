@@ -19,7 +19,11 @@ const RestaurantHeader = () => {
           Restaurant
         </Text>
       </View>
-      <Input variant="filled" placeholder="Search" className="m-0 font-[mb]" />
+      <Input
+        variant="filled"
+        placeholder="Search"
+        className="m-0 font-[mb] bg-[#F9F9F9] rounded-lg"
+      />
     </>
   );
 };

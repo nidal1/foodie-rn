@@ -1,6 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { HomeScreen, RestaurantScreen } from "./src/screens";
+import {
+  HomeScreen,
+  RestaurantGridScreen,
+  RestaurantScreen,
+} from "./src/screens";
 import { NativeBaseProvider, Box } from "native-base";
 import React from "react";
 import { useFonts } from "expo-font";
@@ -28,15 +32,20 @@ export default function App() {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
+          {/* <Stack.Screen
             options={{ headerShown: false }}
             name="Home"
             component={HomeScreen}
-          />
-          <Stack.Screen
+          /> */}
+          {/* <Stack.Screen
             options={{ headerShown: false }}
             name="Restaurant"
             component={RestaurantScreen}
+          /> */}
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="Restaurant Grid"
+            component={RestaurantGridScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>

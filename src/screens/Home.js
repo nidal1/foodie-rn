@@ -2,11 +2,9 @@ import { Text, View, Image } from "react-native";
 import { Button } from "native-base";
 import React, { useContext } from "react";
 import EvilIcons from "@expo/vector-icons/EvilIcons";
-import { FontContext } from "../context/FontContext";
 
 const Home = (props) => {
   const { navigation } = props;
-  // const { mb, mr, msb, wsb, wsr, wssb } = useContext(FontContext);
   return (
     <View className="bg-primary-2 flex-1 pb-[53px]">
       <Image

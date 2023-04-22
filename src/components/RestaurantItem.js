@@ -13,6 +13,21 @@ const RestaurantItem = ({
   isLoaded = false,
 }) => {
   const TypeList = () => {
+    if (isLoaded) {
+      return (
+        <HStack mb="16px">
+          <Skeleton h="90px" w="90px" rounded={"lg"} />
+          <VStack flex={1} justifyContent={"space-between"}>
+            <Skeleton px="4" w={"100%"} h={6} rounded="full" />
+            <Skeleton px="4" w={"100%"} h={5} rounded="full" />
+            <HStack>
+              <Skeleton px="4" w={"50%"} h={5} rounded="full" />
+              <Skeleton px="4" w={"50%"} h={5} rounded="full" />
+            </HStack>
+          </VStack>
+        </HStack>
+      );
+    }
     return (
       <>
         <View className="flex-row gap-x-4 mb-4">

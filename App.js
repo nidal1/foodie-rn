@@ -32,16 +32,16 @@ export default function App() {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          {/* <Stack.Screen
+          <Stack.Screen
             options={{ headerShown: false }}
             name="Home"
             component={HomeScreen}
-          /> */}
-          {/* <Stack.Screen
+          />
+          <Stack.Screen
             options={{ headerShown: false }}
             name="Restaurant"
             component={RestaurantScreen}
-          /> */}
+          />
           <Stack.Screen
             options={{ headerShown: false }}
             name="Restaurant Grid"

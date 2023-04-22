@@ -1,10 +1,11 @@
 import { View, Text, FlatList } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import thumbnail_img from "../../assets/images/thumbnail_img.png";
 import thumbnail_img_1 from "../../assets/images/thumbnail_img-1.png";
 import thumbnail_img_2 from "../../assets/images/thumbnail_img-2.png";
 import { RestaurantHeader, RestaurantItem } from "../components";
+import { Skeleton, VStack } from "native-base";
 const dataRestaurants = [
   {
     key: "1",
@@ -50,29 +51,48 @@ const dataRestaurants = [
   },
 ];
 
-const renderRestaurantItem = ({
-  item: { title, subtitle, isOpen, imageuri },
-}) => {
-  return (
-    <RestaurantItem
-      title={title}
-      subtitle={subtitle}
-      isOpen={isOpen}
-      imageuri={imageuri}
-    />
-  );
-};
 const Restaurant = () => {
+  const [isLoaded, setIsLoaded] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const renderRestaurantItem = ({
+    item: { title, subtitle, isOpen, imageuri },
+  }) => {
+    return (
+      <RestaurantItem
+        title={title}
+        subtitle={subtitle}
+        isOpen={isOpen}
+        imageuri={imageuri}
+        isLoaded={isLoaded}
+      />
+    );
+  };
   return (
     <View className="bg-white flex-1 pt-4 px-5">
       <RestaurantHeader />
+      {isLoaded && (
+        <VStack mb="20px" mt="20px">
+          <Skeleton h={7} maxW={"70%"} />
+        </VStack>
+      )}
+      {!isLoaded && (
+        <VStack className="mb-5">
+          <Text className="font-[mb] text-secondary-1 text-xl">
+            Restaurants Nearby
+          </Text>
+        </VStack>
+      )}
       <View className="flex-1">
-        <Text
-          style={{ fontFamily: "mb" }}
-          className="my-8 font-bold text-secondary-1 text-xl"
-        >
-          Restaurants Nearby
-        </Text>
         <FlatList
           data={dataRestaurants}
           renderItem={renderRestaurantItem}
